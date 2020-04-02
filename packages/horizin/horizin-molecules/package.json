@@ -28,6 +28,8 @@
     "@styled-system/should-forward-prop": "^5.1.4",
     "@styled-system/space": "^5.1.2",
     "cross-env": "^7.0.2",
+    "namor": "^2.0.2",
+    "react-table": "^7.0.0",
     "theme-ui": "^0.2.52"
   },
   "devDependencies": {

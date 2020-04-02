@@ -21,6 +21,35 @@ const MenuAside = props => {
     <>
       <Molecule.Menu
         direction="column"
+        label="Search"
+        sx={styleMenuItem}
+        hover={styleMenuItemHover}
+        sxChildren={styleMenuItemChildren}
+        sxChild={{transition: 'all 0.2s'}}
+        labelUnderline
+        items={[
+          {
+            label: 'Blocks',
+            to: '/insights/search/blocks',
+          },
+          {
+            label: 'Transactions',
+            to: '/insights/search/transactions',
+          },
+          {
+            label: 'Receipts',
+            to: '/insights/search/receipts',
+          },
+          {
+            label: 'ENS',
+            to: '/insights/search/ens',
+          },
+        ]}
+      />
+
+      {/* When Analytics Are Available Uncomment Menu */}
+      {/* <Molecule.Menu
+        direction="column"
         label="Analytics"
         sx={styleMenuItem}
         hover={styleMenuItemHover}
@@ -41,7 +70,7 @@ const MenuAside = props => {
             to: '/insights/analytics/receipts',
           },
         ]}
-      />
+      /> */}
     </>
   );
 };

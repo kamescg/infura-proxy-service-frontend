@@ -31,7 +31,7 @@ const TransactionList = ({refetch, data, subscribeToMore}) => {
   }, []);
 
   useEffect(() => {
-    if (data.transactions) setList(concat(list, data.transactions));
+    if (data && data.transactions) setList(concat(list, data.transactions));
   }, [data]);
 
   useEffect(() => {

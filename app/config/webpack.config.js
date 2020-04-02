@@ -328,6 +328,10 @@ module.exports = function(webpackEnv) {
         '@templates': path.resolve(__dirname, '../src/layout/templates'),
         '@routes': path.resolve(__dirname, '../src/layout/routes'),
         '@views': path.resolve(__dirname, '../src/views'),
+        // GraphQL
+        '@graphql': path.resolve(__dirname, '../src/graphql'),
+        '@query': path.resolve(__dirname, '../src/graphql/query'),
+        '@mutation': path.resolve(__dirname, '../src/graphql/mutation'),
         // Assets
         '@assets': path.resolve(__dirname, '../src/assets'),
         '@data': path.resolve(__dirname, '../src/assets/data'),

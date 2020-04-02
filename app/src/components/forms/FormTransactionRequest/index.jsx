@@ -5,50 +5,54 @@
  */
 
 /* --- Global --- */
-import {useState} from 'react';
 import {PropTypes} from 'prop-types';
 import {useForm} from 'react-hook-form';
 
 import {fetchTransaction} from '@fetching';
 /* --- Component --- */
-const FormTransactionRequest = ({styled, ...props}) => {
+const FormTransactionRequest = ({horizontal, sx, ...props}) => {
   /* --- Form Hook State --- */
   const {handleSubmit, register, errors} = useForm();
-
-  /* --- Component State --- */
-  const [isComplete, setComplete] = useState();
 
   /* --- Submit Handler --- */
   const onSubmit = values => {
     if (values) {
       fetchTransaction(values.hash);
-      setComplete(true); // TODO @kamescg Validate submission and add storage mutation
     }
   };
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+  return horizontal ? (
+    <Atom.Box as="form" onSubmit={handleSubmit(onSubmit)} sx={sx}>
       <Molecule.Field
         name="hash"
         placeholder="Transaction Hash"
-        disabled={isComplete}
+        register={register}
+        errors={errors}
+        sx={{m: 0, height: '100%'}}
+        sxWrapper={{flex: 5}}
+      />
+      <Atom.Button bg="orange" color="white" sx={{flex: 1, width: '100%'}}>
+        <Atom.Span>Request</Atom.Span>
+      </Atom.Button>
+    </Atom.Box>
+  ) : (
+    <Atom.Box as="form" onSubmit={handleSubmit(onSubmit)} sx={sx}>
+      <Molecule.Field
+        name="hash"
+        placeholder="Transaction Hash"
         register={register}
         errors={errors}
         sx={{}}
       />
       <Atom.Button bg="orange" color="white" sx={{mt: 2, width: '100%'}}>
-        {isComplete ? (
-          <Atom.Span>Complete!</Atom.Span>
-        ) : (
-          <Atom.Span>Request Transaction Data</Atom.Span>
-        )}
+        <Atom.Span>Request Transaction Data</Atom.Span>
       </Atom.Button>
-    </form>
+    </Atom.Box>
   );
 };
 
 FormTransactionRequest.defaultProps = {
-  styled: {},
+  sx: {},
 };
 
 FormTransactionRequest.propTypes = {

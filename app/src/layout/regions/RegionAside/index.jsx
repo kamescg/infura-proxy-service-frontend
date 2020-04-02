@@ -30,10 +30,9 @@ const RegionAside = ({sx, ...props}) => {
       </Atom.Box>
 
       {/* Bottom : Aside */}
-      <Atom.Flex gradient="leather" sx={{flex: 1, justifySelf: 'flex-end'}}>
+      <Atom.Flex sx={{flex: 1, justifySelf: 'flex-end'}}>
         <Atom.Flex
           sx={{
-            // justifyContent: 'flex-end',
             alignItems: 'flex-end',
             flex: 1,
             pb: 3,
